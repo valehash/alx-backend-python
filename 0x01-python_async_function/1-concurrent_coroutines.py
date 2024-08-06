@@ -9,6 +9,7 @@
 
     returns:  return the list of all the delays (float values) in ascending order.
 """
+
 import asyncio
 wait_rand=__import__('0-basic_async_syntax').wait_random
 
@@ -19,5 +20,5 @@ async def wait_n(n: int, max_delay: int) -> list[float]:
     for routine in asyncio.as_completed(routine):
         val = await(routine)
         array.append(val)
-    return array
+    return sorted(array)
 

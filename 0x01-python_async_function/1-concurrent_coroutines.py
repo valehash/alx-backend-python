@@ -11,14 +11,16 @@
 """
 
 import asyncio
-wait_rand=__import__('0-basic_async_syntax').wait_random
+from typing import List
 
-async def wait_n(n: int, max_delay: int) -> list[float]:
-    """A function that list all the delays created(sorted) in seconds"""
-    array = []
-    routine = [wait_rand(max_delay) for i in range(n)]
-    for routine in asyncio.as_completed(routine):
-        val = await(routine)
-        array.append(val)
-    return sorted(array)
 
+wait_random = __import__('0-basic_async_syntax').wait_random
+
+
+async def wait_n(n: int, max_delay: int) -> List[float]:
+    '''This executes wait_random n times.
+    '''
+    wait_times = await asyncio.gather(
+        *tuple(map(lambda _: wait_random(max_delay), range(n)))
+    )
+    return sorted(wait_times)

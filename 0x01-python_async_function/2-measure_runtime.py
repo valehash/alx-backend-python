@@ -17,7 +17,5 @@ def measure_time(n: int, max_delay: int) -> float:
     """Measures the time taken in seconds to awati a n number of tasks with a set max_delay """
     start_time = time.time()
     asyncio.run(wait_routine(n, max_delay))
-    end_time = time.time()
-    totaltime = end_time - start_time
-    return totaltime / n
+    return (time.time() - start_time) / n
 

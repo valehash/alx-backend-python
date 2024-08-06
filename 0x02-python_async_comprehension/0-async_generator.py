@@ -10,8 +10,9 @@ import asyncio
 import random
 
 async def async_generator():
-    for i in range(1, 10):
+    """
+    Function to yield a random number
+    """
+    for _ in range(1, 10):
         await asyncio.sleep(1)
         yield(random.uniform(1 ,10))
-        i += 1
-

@@ -13,6 +13,6 @@ async def async_generator():
     """
     Function to yield a random number
     """
-    for _ in range(1, 10):
+    for _ in range(10):
         await asyncio.sleep(1)
         yield(random.uniform(1 ,10))

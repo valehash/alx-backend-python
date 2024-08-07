@@ -15,5 +15,4 @@ async def async_comprehension() -> list[float]:
     """
     Function that adds the async calls generat4ed into an array
     """
-    new_list = [i async for i in generator()]
-    return new_list
+    return [i async for i in generator()]
